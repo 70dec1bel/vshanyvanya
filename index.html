@@ -16,10 +16,10 @@
 <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/examples/js/loaders/GLTFLoader.js"></script>
 
 <script>
- <script type="module">
-  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.module.js';
-  import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.149.0/examples/jsm/controls/OrbitControls.js';
-  import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.149.0/examples/jsm/loaders/GLTFLoader.js';
+<script type="module">
+  import * as THREE from 'https://cdn.skypack.dev/three@0.149.0';
+  import { OrbitControls } from 'https://cdn.skypack.dev/three@0.149.0/examples/jsm/controls/OrbitControls.js';
+  import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.149.0/examples/jsm/loaders/GLTFLoader.js';
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0xeeeeee);
@@ -34,19 +34,12 @@
   const light = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
   scene.add(light);
 
-  // ✅ ВАЖНО: без THREE.
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
 
   const loader = new GLTFLoader();
-  loader.load('Project_1.glb', function(gltf){
+  loader.load('./Project_1.glb', (gltf) => {
     scene.add(gltf.scene);
-  });
-
-  window.addEventListener('resize', function(){
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
   });
 
   function animate(){
