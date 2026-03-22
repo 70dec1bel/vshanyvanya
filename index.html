@@ -35,7 +35,7 @@ controls.enableDamping = true;
 
 // загрузка модели
 const loader = new GLTFLoader();
-loader.load('model.glb', (gltf) => {
+loader.load('Project_1.glb', (gltf) => {
   scene.add(gltf.scene);
 }, undefined, (error) => {
   console.error('Ошибка загрузки модели:', error);
