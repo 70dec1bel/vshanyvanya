@@ -10,9 +10,16 @@
 </head>
 <body>
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.160/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.160/examples/js/controls/OrbitControls.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.160/examples/js/loaders/GLTFLoader.js"></script>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.173.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com"
+    }
+  }
+</script>
+<!-- Your main script that uses the import map -->
+<script type="module" src="./main.js"></script>
 
 <script>
   const scene = new THREE.Scene();
